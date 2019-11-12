@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">WakaTracker</string>
     <string name="splash">Sorry,\nIt\'s code time.</string>
+    <string name="dummy">Today, you coded</string>
 </resources>

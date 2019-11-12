@@ -12,7 +12,7 @@ class SpalshActivity : AppCompatActivity() {
         setContentView(R.layout.activity_spalsh)
 
         Handler().postDelayed({
-            startActivity<MainActivity>()
+            startActivity<PieChartActivity>()
         },2000)
     }
 }
