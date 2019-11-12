@@ -32,15 +32,18 @@ class PieChartActivity : AppCompatActivity() {
             setMaxVisibleValueCount(50)
 
         }
+         val mMonths = arrayOf("MON","TUE","WED","THU","FRI","SAT","SUN")
+
         val xAxisFormatter = DayAxisValueFormatter(chart)
+        val xAxF = GraphAxisValueFormatter(mMonths)
 
         val xAxis = chart.getXAxis()
         with(xAxis) {
             position = XAxis.XAxisPosition.BOTTOM
             setDrawGridLines(false)
 
-            granularity = 3f
-            valueFormatter = xAxisFormatter
+            granularity = 1f
+            valueFormatter = xAxF
         }
 
         val leftAxis = chart.axisLeft
@@ -55,10 +58,12 @@ class PieChartActivity : AppCompatActivity() {
 
        val rightAxis = chart.axisRight
 
+        // right YAxis not activated
+
         with(rightAxis) {
-            setLabelCount(8, false)
-            setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART)
-            axisMinimum = 0f
+         setDrawLabels(false)
+            setDrawAxisLine(false)
+            setDrawGridLines(false)
         }
 
 
@@ -66,7 +71,7 @@ class PieChartActivity : AppCompatActivity() {
         nv.chartView = chart
         chart.marker = nv
 
-        setData(10, 12f)
+        setData(7, 12f)
 
 
     }
@@ -76,13 +81,13 @@ class PieChartActivity : AppCompatActivity() {
         val values = ArrayList<BarEntry>()
 
 
+        values.add(BarEntry(0f,10f))
         values.add(BarEntry(1f,10f))
-        values.add(BarEntry(2f,10f))
-        values.add(BarEntry(10f,3f))
-        values.add(BarEntry(4f,10f))
-        values.add(BarEntry(5f,20f))
+        values.add(BarEntry(2f,3f))
+        values.add(BarEntry(3f,10f))
+        values.add(BarEntry(4f,20f))
+        values.add(BarEntry(5f,10f))
         values.add(BarEntry(6f,10f))
-        values.add(BarEntry(7f,10f))
 
         val set1: BarDataSet
 
